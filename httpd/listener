@@ -1,0 +1,22 @@
+
+listener Default {
+    address                 *:8088
+    secure                  1
+    keyFile                 $SERVER_ROOT/conf/example.key
+    certFile                $SERVER_ROOT/conf/example.crt
+    certChain               1
+    map                     apps.ex *
+}
+
+listener HTTP {
+    address                 *:80
+    secure                  0
+}
+
+listener HTTPs {
+    address                 *:443
+    secure                  1
+    keyFile                 $SERVER_ROOT/conf/example.key
+    certFile                $SERVER_ROOT/conf/example.crt
+    certChain               1
+}

@@ -1,0 +1,9 @@
+
+virtualhost $host_name {
+    vhRoot                  /www/$VH_NAME
+    configFile              conf/vhosts/$VH_NAME/vhconf.conf
+    allowSymbolLink         1
+    enableScript            1
+    restrained              0
+    setUIDMode              2
+}

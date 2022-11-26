@@ -1,0 +1,35 @@
+
+docRoot                   $VH_ROOT/public_html
+
+index  {
+    useServer               0
+    indexFiles              index.php
+}
+
+phpIniOverride  {
+    php_value post_max_size = 500M
+    php_value upload_max_filesize = 500M
+}
+
+context / {
+    location                $DOC_ROOT
+    allowBrowse             1
+    indexFiles              index.php
+
+    rewrite  {
+        enable                1
+        inherit               1
+        rewriteFile           .htaccess
+    }
+}
+
+rewrite  {
+    enable                  1
+    autoLoadHtaccess        1
+}
+
+vhssl  {
+    keyFile                 conf/vhosts/$VH_NAME/key.pem
+    certFile                conf/vhosts/$VH_NAME/fullchain.pem
+    certChain               1
+}
